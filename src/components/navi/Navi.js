@@ -23,13 +23,18 @@ export default class Navi extends Component {
       isOpen: false,
     };
   }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
   render() {
     return (
       <div>
-        <Navbar {...args}>
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
+        <Navbar color="light" light expand="md">
+        <NavbarBrand>Northwind Mağazası</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="me-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
